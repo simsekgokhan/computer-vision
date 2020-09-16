@@ -17,8 +17,8 @@ int main(int argc, char** argv)
     int minVal =  0, maxVal = 255;
 
     // Create trackbars in mask settings window
-    cvCreateTrackbar("Min Hue", MASK_WINDOW, &minHue, 255);
-    cvCreateTrackbar("Max Hue", MASK_WINDOW, &maxHue, 255);
+    cvCreateTrackbar("Min Hue", MASK_WINDOW, &minHue, 179);
+    cvCreateTrackbar("Max Hue", MASK_WINDOW, &maxHue, 179);
     cvCreateTrackbar("Min Sat", MASK_WINDOW, &minSat, 255);
     cvCreateTrackbar("Max Sat", MASK_WINDOW, &maxSat, 255);
     cvCreateTrackbar("Min Val", MASK_WINDOW, &minVal, 255);

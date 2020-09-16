@@ -9,8 +9,8 @@ def noop(x): return None
 ## 1. Create "Set Mask" window with default HSV range to detect blue color
 SET_MASK_WINDOW = "Set Mask"
 cv2.namedWindow(SET_MASK_WINDOW)
-cv2.createTrackbar("Min Hue", SET_MASK_WINDOW, 90, 255, noop)
-cv2.createTrackbar("Max Hue", SET_MASK_WINDOW, 140, 255, noop)
+cv2.createTrackbar("Min Hue", SET_MASK_WINDOW, 90, 179, noop)
+cv2.createTrackbar("Max Hue", SET_MASK_WINDOW, 140, 179, noop)
 cv2.createTrackbar("Min Sat", SET_MASK_WINDOW, 74, 255, noop)
 cv2.createTrackbar("Max Sat", SET_MASK_WINDOW, 255, 255, noop)
 cv2.createTrackbar("Min Val", SET_MASK_WINDOW, 0, 255, noop)
