@@ -5,7 +5,7 @@
 **  (HSV -> Hue, Saturation, Value)
 **/
 
-int main(int argc, char** argv)
+int main()
 {
     //// 1. Create mask settings UI with default HSV range to detect blue color
     auto const MASK_WINDOW = "Mask Settings";
