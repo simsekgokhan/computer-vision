@@ -8,7 +8,7 @@ def noop(x): return None
 
 ## 1. Create "Set Mask" window with default HSV range to detect blue color
 SET_MASK_WINDOW = "Set Mask"
-cv2.namedWindow(SET_MASK_WINDOW)
+cv2.namedWindow(SET_MASK_WINDOW, cv2.WINDOW_NORMAL)
 cv2.createTrackbar("Min Hue", SET_MASK_WINDOW, 90, 179, noop)
 cv2.createTrackbar("Max Hue", SET_MASK_WINDOW, 140, 179, noop)
 cv2.createTrackbar("Min Sat", SET_MASK_WINDOW, 74, 255, noop)
@@ -23,7 +23,8 @@ while True:
     ## 3. Capture video from camera and convert to HSV color space
     _, capturedVideo = videoCapture.read() # video
     # rotate video 180 degrees (it starts upside down on Windows)
-    capturedVideo = cv2.flip(capturedVideo, -1)
+    # capturedVideo = cv2.flip(capturedVideo, 1) # Win                                
+    capturedVideo = cv2.resize(capturedVideo, None, None, fx=0.5, fy=0.5) # macOS
     capturedVideoHsv = cv2.cvtColor(capturedVideo, cv2.COLOR_BGR2HSV)
 
     ## 4. Get min and max HSV values from Set Mask window
