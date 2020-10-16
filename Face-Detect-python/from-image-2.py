@@ -1,14 +1,15 @@
 import cv2 as cv
 
-face_cascade = cv.CascadeClassifier('haarcascade_frontalface_default.xml')
-eye_cascade = cv.CascadeClassifier('haarcascade_eye_tree_eyeglasses.xml')
+### 1. Load Haar feature-based cascade classifiers 
+faceCascade = cv.CascadeClassifier('haarcascade_frontalface_default.xml')
+eyeCascade = cv.CascadeClassifier('haarcascade_eye_tree_eyeglasses.xml')
 
-## Read image and convert to grayscale
-image = cv.imread('einstein.jpg')
+### 2. Read image and convert to grayscale
+image = cv.imread('para-1.jpg')
 gray = cv.cvtColor(image, cv.COLOR_BGR2GRAY)
 
-## Find faces using Haar cascade classifier
-faces = face_cascade.detectMultiScale(image= gray, scaleFactor= 1.1, minNeighbors= 4)
+### 3. Find areas with faces using Haar cascade classifier
+faces = faceCascade.detectMultiScale(image= gray, scaleFactor= 1.1, minNeighbors= 4)
     # scaleFactor: how much the image size is reduced at each image scale
     # minNeighbors: how many neighbors each candidate rectangle should have to retain it
 
@@ -16,14 +17,14 @@ faces = face_cascade.detectMultiScale(image= gray, scaleFactor= 1.1, minNeighbor
 for (x, y, w, h) in faces:
     cv.rectangle(image, (x, y), (x+w, y+h), (255, 0, 0), 2)
     # Get the region of interest: face rectangle sub-image in gray and colored
-    roi_gray = gray[y: y+h, x: x+w]
-    roi_colored = image[y: y+h, x: x+w]    
-    ## Find eyes using Haar cascade classifier
-    eyes = eye_cascade.detectMultiScale(roi_gray)
+    roiGray = gray[y: y+h, x: x+w]
+    roiColored = image[y: y+h, x: x+w]    
+    ### 4. Find areas with eyes in faces using Haar cascade classifier
+    eyes = eyeCascade.detectMultiScale(roiGray)
     # x, y coordinates, w (weight) and h (height) of each "eye" rectangle in a face
     for (ex, ey, ew, eh) in eyes:
-        cv.rectangle(roi_colored, (ex, ey), (ex+ew, ey+eh), (0, 255, 0), 2)
+        cv.rectangle(roiColored, (ex, ey), (ex+ew, ey+eh), (0, 255, 0), 2)
 
-## Show the output image
-cv.imshow('Image', image)
+## 5. Show the output image
+cv.imshow('Face Detection - OpenCV', image)
 cv.waitKey()
