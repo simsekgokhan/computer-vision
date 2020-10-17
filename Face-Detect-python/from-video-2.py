@@ -32,6 +32,4 @@ while video.isOpened():
 
     #### 5. Show the output video
     cv.imshow('Face Detection - OpenCV', frame)
-    if cv.waitKey(10) == 27: break
-
-video.release()
+    if cv.waitKey(10) == 27: break  # Wait Esc key to end program

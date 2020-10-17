@@ -45,6 +45,6 @@ while True:
 
     ## 6. Show videos
     cv.imshow("Captured Video", capturedVideo)
-    # cv.imshow("Mask", mask)  // optional
+    # cv.imshow("Mask", mask)  # optional
     cv.imshow("Result (Masked) Video", resultVideo)
     if cv.waitKey(1) == 27: break   # Wait Esc key to end program

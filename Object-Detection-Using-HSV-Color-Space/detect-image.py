@@ -39,6 +39,6 @@ while True:
 
     ## 5. Show images
     cv.imshow("Input Image", image)
-    # cv.imshow("Mask", mask) // optional
+    # cv.imshow("Mask", mask)   # optional
     cv.imshow("Result Image", resultImage)
     if cv.waitKey(1) == 27: break   # Wait Esc key to end program

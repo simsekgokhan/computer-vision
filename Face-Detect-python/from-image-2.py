@@ -29,4 +29,4 @@ for (x, y, w, h) in faces:
 
 ## 5. Show the output image
 cv.imshow('Face Detection - OpenCV', image)
-cv.waitKey()
+cv.waitKey() # Wait Esc key to end program  

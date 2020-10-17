@@ -30,7 +30,7 @@ int main()
             cv::Size halfFace { faces[i].width/2, faces[i].height/2 };
             // input, center, axes, angle=0, startAngle=0, endAngle=360, color, thickness=2
             cv::ellipse(inputFrame, faceCenter, halfFace, 0, 0, 360, cv::Scalar(255, 0, 255), 2);
-            // Get the region of interest : face rectangle sub - image in gray and colored
+            // Get the region of interest : face rectangle sub-frame in gray and colored
             cv::Mat faceROIGray { inputFrameGray(faces[i]) };
 
             //// 4. Find areas with eyes in faces using Haar cascade classifier
@@ -46,8 +46,7 @@ int main()
         }
 
         //// 5. Show the output video
-        cv::imshow("Face Detection - OpenCV", inputFrame);
-        // Wait for 'esc' (27) key press for 20ms. If pressed, end program.
-        if (cv::waitKey(20) == 27) break;
+        cv::imshow("Face Detection - OpenCV", inputFrame);        
+        if (cv::waitKey(20) == 27) break; // Wait Esc key to end program  
     }
 }
