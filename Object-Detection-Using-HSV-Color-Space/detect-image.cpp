@@ -16,7 +16,7 @@ int main()
     int minSat = 74, maxSat = 255;
     int minVal =  0, maxVal = 255;
 
-    // Create trackbars in mask settings window
+    // Create trackbars of mask settings window
     cvCreateTrackbar("Min Hue", MASK_WINDOW, &minHue, 179);
     cvCreateTrackbar("Max Hue", MASK_WINDOW, &maxHue, 179);
     cvCreateTrackbar("Min Sat", MASK_WINDOW, &minSat, 255);
@@ -26,15 +26,22 @@ int main()
 
     while (true) {
         //// 2. Read and convert image to HSV color space
-        cv::Mat inputImage { cv::imread("E:\\cv\\paralect.png", cv::IMREAD_COLOR) };
+        cv::Mat inputImage { cv::imread("paralect.png", cv::IMREAD_COLOR) };
         cv::Mat inputImageHSV;
-        cvtColor(inputImage, inputImageHSV, cv::COLOR_BGR2HSV);
+        cv::cvtColor(inputImage, inputImageHSV, cv::COLOR_BGR2HSV);
 
         //// 3. Create mask and result (masked) image
         cv::Mat mask;
-        inRange(inputImageHSV, cv::Scalar(minHue, minSat, minVal), cv::Scalar(maxHue, maxSat, maxVal), mask);
+        // params: input array, lower boundary array, upper boundary array, output array
+        cv::inRange(
+            inputImageHSV, 
+            cv::Scalar(minHue, minSat, minVal), 
+            cv::Scalar(maxHue, maxSat, maxVal), 
+            mask
+        );
         cv::Mat resultImage;
-        bitwise_and(inputImage, inputImage, resultImage, mask);
+        // params: src1	array, src2 array, output array, mask
+        cv::bitwise_and(inputImage, inputImage, resultImage, mask);
 
         //// 4. Show images        
         cv::imshow("Input Image", inputImage);

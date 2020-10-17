@@ -37,14 +37,21 @@ int main()
 
         //// 4. Create mask and result (masked) video
         cv::Mat mask;
-        inRange(inputVideoHSV, cv::Scalar(minHue, minSat, minVal), cv::Scalar(maxHue, maxSat, maxVal), mask);
+        // params: input array, lower boundary array, upper boundary array, output array
+        cv::inRange(
+            inputVideoHSV, 
+            cv::Scalar(minHue, minSat, minVal), 
+            cv::Scalar(maxHue, maxSat, maxVal), 
+            mask
+        );
         cv::Mat resultVideo;
-        bitwise_and(inputVideo, inputVideo, resultVideo, mask);
+        // params: src1	array, src2 array, output array, mask
+        cv::bitwise_and(inputVideo, inputVideo, resultVideo, mask);
 
         //// 5. Show videos        
-        imshow("Input Video", inputVideo);
-        imshow("Result (Masked) Video", resultVideo);
-        // imshow("Mask", mask);
+        cv::imshow("Input Video", inputVideo);
+        cv::imshow("Result (Masked) Video", resultVideo);
+        // cv::imshow("Mask", mask);
 
         //// Wait for 'esc' (27) key press for 30ms. If pressed, end program.
         if (cv::waitKey(30) == 27) break;
