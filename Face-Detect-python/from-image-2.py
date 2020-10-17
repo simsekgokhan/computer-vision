@@ -15,15 +15,17 @@ faces = faceCascade.detectMultiScale(image= gray, scaleFactor= 1.1, minNeighbors
 
 # x, y coordinates, w (weight) and h (height) of each "face" rectangle in image
 for (x, y, w, h) in faces:
+    # input, point1, point2, color, thickness=2
     cv.rectangle(image, (x, y), (x+w, y+h), (255, 0, 0), 2)
     # Get the region of interest: face rectangle sub-image in gray and colored
-    roiGray = gray[y: y+h, x: x+w]
-    roiColored = image[y: y+h, x: x+w]    
+    faceROIGray = gray[y: y+h, x: x+w]
+    faceROIColored = image[y: y+h, x: x+w]    
+    
     ### 4. Find areas with eyes in faces using Haar cascade classifier
-    eyes = eyeCascade.detectMultiScale(roiGray)
+    eyes = eyeCascade.detectMultiScale(faceROIGray)
     # x, y coordinates, w (weight) and h (height) of each "eye" rectangle in a face
     for (ex, ey, ew, eh) in eyes:
-        cv.rectangle(roiColored, (ex, ey), (ex+ew, ey+eh), (0, 255, 0), 2)
+        cv.rectangle(faceROIColored, (ex, ey), (ex+ew, ey+eh), (0, 255, 0), 2)
 
 ## 5. Show the output image
 cv.imshow('Face Detection - OpenCV', image)
