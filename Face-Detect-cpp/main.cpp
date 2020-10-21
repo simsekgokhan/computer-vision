@@ -8,7 +8,7 @@ int main()
 {
     std::cout << "---- Start ---- \n";
 
-    std::cout << " bbbbb \n";
+    std::cout << "opencv version: " << cv::getVersionString() << "\n";
 
     std::cout << "---- End ---- \n";
 }

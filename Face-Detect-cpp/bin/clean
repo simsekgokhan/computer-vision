@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+
+echo "Cleaning ... "
+echo "-------------------------------------"
+
+cd ..
+rm -rf build
