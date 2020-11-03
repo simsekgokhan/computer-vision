@@ -70,8 +70,8 @@ Ref: https://nodejs.org/api/child_process.html#child_process_child_process_exec_
 ```  
 // Node.JS
   const { exec } = require('child_process');
-  const exeDir = 'E:\PycharmProjects\\opencv-1';
-  exec('python.exe main.py image.png', {cwd: exeDir}, (error, stdout, stderr) => {
+  const mainDir = 'E:\PycharmProjects\\opencv-1';
+  exec('python.exe main.py image.png', {cwd: mainDir}, (error, stdout, stderr) => {
     if (error) {
       console.error(`exec error: ${error}`);
       return;
