@@ -1,17 +1,26 @@
 # computer-vision
 
+Each folder in this repo: 
+- should be an independent **Computer Vision** app
+- should contain README.md version information
+
+--------------------------------------------------------------------
+
 ### A. Cheat Sheet
 
+```
 // Install opencv-python  
 pip install opencv-python  // macOS: use pip3, python3  
 // Sample images  
 https://github.com/opencv/opencv/tree/master/samples/data  
 // Doc  
-https://docs.opencv.org/4.3.0/d4/da8/group__imgcodecs.html#gga61d9b0126a3e57d9277ac48327799c80af660544735200cbe942eea09232eb822  
+https://docs.opencv.org/4.3.0/d4/da8/group__imgcodecs.html
 // OpenCV.js for Node.js  
 https://docs.opencv.org/master/dc/de6/tutorial_js_nodejs.html  
 // Opencv.js for WEB  
 https://docs.opencv.org/3.4.3/d0/d84/tutorial_js_usage.html  
+```
+
 
 ### B. How to call OpenCV C++ and Python programs from Node.JS:
 Ref: https://nodejs.org/api/child_process.html#child_process_child_process_exec_command_options_callback
