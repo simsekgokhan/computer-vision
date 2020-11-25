@@ -6,7 +6,7 @@ Each folder in this repo:
 
 --------------------------------------------------------------------
 
-### A. Cheat Sheet
+#### A. Cheat Sheet
 
 ```
 // Install opencv-python  
@@ -22,11 +22,11 @@ https://docs.opencv.org/3.4.3/d0/d84/tutorial_js_usage.html
 ```
 
 
-### B. How to call OpenCV C++ and Python programs from Node.JS:
+#### B. How to call OpenCV C++ and Python programs from Node.JS:
 Ref: https://nodejs.org/api/child_process.html#child_process_child_process_exec_command_options_callback
 
 
-####  1. Call C++ program from NodeJS 
+#####  1. Call C++ program from NodeJS 
 
 ```
 //C++
@@ -74,7 +74,7 @@ Ref: https://nodejs.org/api/child_process.html#child_process_child_process_exec_
   arr.len: 20
 ```  
 
-####  2. Call Python program from NodeJS 
+#####  2. Call Python program from NodeJS 
 
 ```  
 // Node.JS
